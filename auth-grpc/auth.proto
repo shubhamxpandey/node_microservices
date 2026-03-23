@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package auth;
+
+service AuthService {
+
+ rpc SendOTP (OTPRequest) returns (OTPResponse);
+
+ rpc VerifyOTP (VerifyRequest) returns (VerifyResponse);
+
+}
+
+message OTPRequest {
+ string phone = 1;
+}
+
+message OTPResponse {
+ string message = 1;
+}
+
+message VerifyRequest {
+ string phone = 1;
+ string otp = 2;
+}
+
+message VerifyResponse {
+ string message = 1;
+}
